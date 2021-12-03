@@ -3,8 +3,18 @@ go-chat is a gRPC based chat CLI written in golang for command line lovers. This
 with your friends without leaving the command line.
 
 ## Installation
+
+This CLI was built with go 1.17.
 ```shell
 go install github.com/piyushjajoo/go-chat@latest
+```
+
+If you have an older version of go, go install might not work. Try following command -
+```shell
+export GO111MODULE=on
+go get github.com/piyushjajoo/go-chat@latest
+go install github.com/piyushjajoo/go-chat
+export PATH=$PATH:$GOPATH/bin
 ```
 
 ### Go chat help
