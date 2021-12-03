@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option go_package = "github.com/piyushjajoo/go-chat/grpc/gochat";
+
+package gochat;
+
+// Broadcast service to allow users to connect and chat
+service Broadcast {
+  // CreateStream is a server streaming rpc method
+  // which accepts the connection details and returns a stream of message
+  rpc CreateStream(Connect) returns (stream Message);
+  // BroadcastMessage broadcasts the message to current active users
+  rpc BroadcastMessage(Message) returns (Close);
+}
+
+// User for user details
+message User {
+  string id = 1; // user's unique identifier
+  string display_name = 2; // user's display name
+}
+
+// Message for message details
+message Message {
+  string id = 1; // message id
+  User user = 2; // who us sending the message
+  string message = 3; // what is the message
+  string timestamp = 4; // at what time the message was sent
+}
+
+// Connect to for the connection details
+message Connect {
+  User user = 1; // user details for this user
+  bool active = 2; // is this user active
+  repeated string chattingWith = 3; // who is this user chatting with
+}
+
+message Close{}
