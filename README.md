@@ -4,7 +4,7 @@ with your friends without leaving the command line.
 
 ## Installation
 ```shell
-go install github.com/piyushjajoo/go-chat
+go install github.com/piyushjajoo/go-chat@latest
 ```
 
 ### Go chat help
